@@ -1,4 +1,5 @@
 import { Injectable } from "@nestjs/common";
+import { CreateFruitsDto } from "../dtos/fruits.dto";
 
 @Injectable()
 export class FruitsService {
@@ -10,9 +11,7 @@ export class FruitsService {
         return this.products;
     }
 
-
-    createProduct(){
-        
+    addProduct( fruitDto: CreateFruitsDto){
+        this.products.push(fruitDto)
     }
-
 }

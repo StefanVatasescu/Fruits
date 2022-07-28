@@ -1,4 +1,5 @@
-import { Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post } from "@nestjs/common";
+import { CreateFruitsDto } from "../dtos/fruits.dto";
 import { FruitsService } from "../services/fruits.service";
 
 @Controller('fruits')
@@ -8,12 +9,15 @@ export class FruitsController{
 
     @Get('')
     fetchProducts(){
-        this.fruitService.fetchProducts();
+        this.fetchProducts();
     }
 
     // @Get('')
 
-    @Post('')
+    @Post('products')
+        addProduct(@Body() createFruitDto: CreateFruitsDto){
+            this.fruitService.addProduct(createFruitDto);
+    }
 
     // @Post('')
 }
