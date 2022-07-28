@@ -4,7 +4,15 @@ import { Injectable } from "@nestjs/common";
 export class FruitsService {
     constructor(){}
 
-    private fruits: Fruit[] = [];
-    
+    private products: Product[] = []; 
+
+    fetchProducts(){
+        return this.products;
+    }
+
+
+    createProduct(){
+        
+    }
 
 }

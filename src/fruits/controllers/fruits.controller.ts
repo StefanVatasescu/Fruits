@@ -1,15 +1,19 @@
-import { Controller, Delete, Get, Patch, Post } from "@nestjs/common";
+import { Controller, Get, Post } from "@nestjs/common";
+import { FruitsService } from "../services/fruits.service";
 
 @Controller('fruits')
-export class FruitController{
-    @Get('')
+export class FruitsController{
 
-    @GetAll('')
+    constructor( fruitService : FruitsService){}
+
+    @Get('')
+    fetchProducts(){
+        this.fruitService.fetchProducts();
+    }
+
+    // @Get('')
 
     @Post('')
 
-    @Patch('')
-
-    @Delete('')
-
+    // @Post('')
 }
