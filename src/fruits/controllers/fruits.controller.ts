@@ -22,8 +22,8 @@ export class FruitsController{
         this.fruitService.addProduct(createFruitDto);
     }
 
-    // @Post('products/:id/update-stock')
-    // updateStock(@Param('id') @Param('quantity') id: number, quantity: number){
-    //     this.fruitService.updateStock(id, quantity);
-    // }
+    @Post('products/:id/update-stock')
+    updateStock(@Param('id') id: number, @Body() qty: number){
+        this.fruitService.updateStock(id, qty);
+    }
 }

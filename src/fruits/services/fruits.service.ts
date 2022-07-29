@@ -24,9 +24,7 @@ export class FruitsService {
         return this.products[this.lastProductId]
     }
 
-    // updateStock( id: number, quantity: number){
-    //     this.products.find((e) => e.id == id){
-
-    //     }
-    // }
-} 
+    updateStock( id: number, qty: number){
+        this.products.find((e) => e.id == id).quantity += qty;          
+    }
+}
