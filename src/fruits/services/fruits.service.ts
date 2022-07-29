@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { CreateFruitsDto } from "../dtos/fruits.dto";
+import { CreateFruitsDto as Product } from "../dtos/fruits.dto";
 
 @Injectable()
 export class FruitsService {
@@ -14,15 +14,15 @@ export class FruitsService {
     }
 
     fetchProduct(id: number){
-        return this.products.find((user) => user.id === id);
+        return this.products.find((e) => e.id == id);
     }
 
-    addProduct( fruitDto: CreateFruitsDto){
+    addProduct( fruitDto: Product){
         return this.products.push(fruitDto)
     }
 
-    updateStock( id: number, quantity: number){
-        this.lastProductId = this.products.find((user) => user.id === id)
-        this.products
-    }
+    // updateStock( id: number, quantity: number){
+    //     this.lastProductId = this.products.find((user) => user.id === id)
+    //     this.products
+    // }
 } 

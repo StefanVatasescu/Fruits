@@ -5,11 +5,11 @@ import { FruitsService } from "../services/fruits.service";
 @Controller('fruits')
 export class FruitsController{
 
-    constructor( fruitService : FruitsService){}
+    constructor( private fruitService : FruitsService){}
 
     @Get('products')
     fetchProducts(){
-        this.fetchProducts();
+        return this.fruitService.fetchProducts();
     }
 
     @Get('products/:id')
@@ -22,8 +22,8 @@ export class FruitsController{
         this.fruitService.addProduct(createFruitDto);
     }
 
-    @Post('products/:id/update-stock')
-    updateStock(@Param('id') @Param('quantity') id: number, quantity: number){
-        this.fruitService.updateStock(id, quantity);
-    }
+    // @Post('products/:id/update-stock')
+    // updateStock(@Param('id') @Param('quantity') id: number, quantity: number){
+    //     this.fruitService.updateStock(id, quantity);
+    // }
 }
