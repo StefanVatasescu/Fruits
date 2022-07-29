@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { CreateFruitsDto as Product } from "../dtos/fruits.dto";
+import { qtyDto } from "../dtos/quantity.dto";
 
 @Injectable()
 export class FruitsService {
@@ -24,7 +25,10 @@ export class FruitsService {
         return this.products[this.lastProductId]
     }
 
-    updateStock( id: number, qty: number){
-        this.products.find((e) => e.id == id).quantity += qty;          
+    updateStock( id: number, qty: qtyDto){
+        const index = this.products.findIndex((e) => e.id == id) ; 
+        console.log(Number(this.products[index].quantity), qty)
+        this.products[index].quantity = Number(this.products[index].quantity) + qty.quantity
+        return id;      
     }
 }

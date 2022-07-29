@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { CreateFruitsDto } from "../dtos/fruits.dto";
 import { FruitsService } from "../services/fruits.service";
-
+import { qtyDto } from "../dtos/quantity.dto";
 @Controller('fruits')
 export class FruitsController{
 
@@ -23,7 +23,8 @@ export class FruitsController{
     }
 
     @Post('products/:id/update-stock')
-    updateStock(@Param('id') id: number, @Body() qty: number){
+    updateStock(@Param('id') id: number, @Body() qty: qtyDto){
+        console.log(qty)
         this.fruitService.updateStock(id, qty);
     }
 }
