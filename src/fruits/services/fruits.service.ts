@@ -7,7 +7,7 @@ export class FruitsService {
 
     private products: Product[] = []; 
     
-    private lastProductId;
+    private lastProductId : number = -1;
 
     fetchProducts(){
         return this.products;
@@ -18,11 +18,15 @@ export class FruitsService {
     }
 
     addProduct( fruitDto: Product){
-        return this.products.push(fruitDto)
+        this.lastProductId ++
+        this.products.push(fruitDto)
+        this.products[this.lastProductId].id = this.lastProductId;
+        return this.products[this.lastProductId]
     }
 
     // updateStock( id: number, quantity: number){
-    //     this.lastProductId = this.products.find((user) => user.id === id)
-    //     this.products
+    //     this.products.find((e) => e.id == id){
+
+    //     }
     // }
 } 
