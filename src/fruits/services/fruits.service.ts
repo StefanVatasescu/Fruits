@@ -23,6 +23,6 @@ export class FruitsService {
 
     updateStock( id: number, quantity: number){
         this.lastProductId = this.products.find((user) => user.id === id)
-        this.products.
+        this.products
     }
 } 

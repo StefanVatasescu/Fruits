@@ -23,7 +23,7 @@ export class FruitsController{
     }
 
     @Post('products/:id/update-stock')
-    updateStock(@Param('id', 'quantity') id: number, quantity: number){
-        this. fruitService.updateStock(id, quantity);
+    updateStock(@Param('id') @Param('quantity') id: number, quantity: number){
+        this.fruitService.updateStock(id, quantity);
     }
 }
